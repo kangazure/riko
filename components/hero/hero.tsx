@@ -34,7 +34,7 @@ export function Hero() {
             <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--color-accent)]" />
           </span>
           <span className="text-[12px] tracking-wide text-[var(--color-text-secondary)]">
-            Available for projects
+            Tersedia untuk proyek
           </span>
         </motion.div>
 
@@ -59,8 +59,8 @@ export function Hero() {
           transition={{ duration: 0.5, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
           className="mb-10 max-w-lg text-[15px] leading-relaxed text-[var(--color-text-secondary)]"
         >
-          Cybersecurity enthusiast focused on security research, web security, and building things
-          that actually work.
+          Cybersecurity enthusiast yang fokus pada riset keamanan, web security,
+          dan membangun hal-hal yang benar-benar berfungsi.
         </motion.p>
 
         {/* CTAs */}
@@ -74,13 +74,13 @@ export function Hero() {
             href="/projects"
             className="inline-flex items-center gap-2 rounded-lg bg-[var(--color-text-primary)] px-5 py-2.5 text-[13px] font-medium text-[var(--color-background)] transition-all hover:bg-[var(--color-text-primary)]/90 active:scale-[0.98]"
           >
-            View Projects
+            Lihat Proyek
           </Link>
           <Link
             href="/blog"
             className="inline-flex items-center gap-2 rounded-lg border border-[var(--color-border)] px-5 py-2.5 text-[13px] font-medium text-[var(--color-text-primary)] transition-all hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface)] active:scale-[0.98]"
           >
-            Read Blog
+            Baca Blog
             <ArrowRight size={14} />
           </Link>
         </motion.div>

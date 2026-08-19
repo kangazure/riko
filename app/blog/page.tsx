@@ -6,7 +6,7 @@ import { blogPosts } from "@/data/blog";
 export const metadata: Metadata = {
   title: "Blog",
   description:
-    "Articles on cybersecurity, networking, Linux, and technology — written from real experience.",
+    "Artikel seputar cybersecurity, networking, Linux, dan teknologi — ditulis dari pengalaman nyata.",
 };
 
 const categoryColors: Record<string, string> = {
@@ -26,7 +26,7 @@ export default function BlogPage() {
           Blog
         </h1>
         <p className="mb-12 text-[15px] leading-relaxed text-[var(--color-text-secondary)]">
-          Notes and write-ups on cybersecurity, networking, and tech. No fluff.
+          Catatan dan tulisan seputar cybersecurity, networking, dan teknologi. Tanpa basa-basi.
         </p>
 
         {/* Category tabs */}
@@ -68,7 +68,7 @@ export default function BlogPage() {
                 {post.description}
               </p>
               <div className="mt-3 inline-flex items-center gap-1 text-[12px] text-[var(--color-accent)] opacity-0 transition-opacity group-hover:opacity-100">
-                Read article <ArrowRight size={12} />
+                Baca artikel <ArrowRight size={12} />
               </div>
             </Link>
           ))}

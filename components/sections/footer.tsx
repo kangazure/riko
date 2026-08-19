@@ -20,7 +20,7 @@ export function Footer() {
             href="/about"
             className="text-[12px] text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text-secondary)]"
           >
-            About
+            Tentang
           </Link>
           <Link
             href="/blog"
@@ -32,7 +32,7 @@ export function Footer() {
             href="/contact"
             className="text-[12px] text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text-secondary)]"
           >
-            Contact
+            Kontak
           </Link>
           <Link
             href="https://github.com"

@@ -8,12 +8,12 @@ import { useTheme } from "next-themes";
 import { AnimatePresence, motion } from "motion/react";
 
 const links = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/projects", label: "Projects" },
-  { href: "/skills", label: "Skills" },
+  { href: "/", label: "Beranda" },
+  { href: "/about", label: "Tentang" },
+  { href: "/projects", label: "Proyek" },
+  { href: "/skills", label: "Keahlian" },
   { href: "/blog", label: "Blog" },
-  { href: "/contact", label: "Contact" },
+  { href: "/contact", label: "Kontak" },
 ];
 
 export function Navbar() {

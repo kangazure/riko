@@ -19,12 +19,12 @@ export function BlogSection({ posts }: BlogSectionProps) {
         <SectionReveal>
           <div className="mb-14">
             <span className="text-[11px] font-medium uppercase tracking-[0.22em] text-[var(--color-accent)]">
-              Writing
+              Tulisan
             </span>
             <h2 className="mt-4 text-[clamp(1.75rem,4vw,2.5rem)] font-semibold leading-[1.1] tracking-tight text-[var(--color-text-primary)]">
-              Notes on security
+              Catatan seputar security
               <br />
-              and networking.
+              dan networking.
             </h2>
           </div>
         </SectionReveal>
@@ -54,7 +54,7 @@ export function BlogSection({ posts }: BlogSectionProps) {
                 <div className="mt-4 flex items-center gap-2 text-[12px] text-[var(--color-text-muted)]">
                   <span>{featured[0]?.date}</span>
                   <span className="inline-flex items-center text-[var(--color-accent)] opacity-0 transition-opacity group-hover:opacity-100">
-                    Read <ArrowRight size={12} className="ml-1" />
+                    Baca <ArrowRight size={12} className="ml-1" />
                   </span>
                 </div>
               </Link>
@@ -93,7 +93,7 @@ export function BlogSection({ posts }: BlogSectionProps) {
               href="/blog"
               className="inline-flex items-center gap-2 text-[13px] font-medium text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]"
             >
-              All articles
+              Semua artikel
               <ArrowRight size={13} />
             </Link>
           </div>

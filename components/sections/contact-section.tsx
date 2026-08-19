@@ -10,14 +10,14 @@ export function ContactSection() {
       <div className="mx-auto max-w-2xl text-center">
         <SectionReveal>
           <span className="text-[11px] font-medium uppercase tracking-[0.22em] text-[var(--color-accent)]">
-            Contact
+            Kontak
           </span>
           <h2 className="mt-4 text-[clamp(1.75rem,4vw,2.5rem)] font-semibold leading-[1.1] tracking-tight text-[var(--color-text-primary)]">
-            Get in touch.
+            Hubungi saya.
           </h2>
           <p className="mt-4 text-[15px] leading-relaxed text-[var(--color-text-secondary)]">
-            Open to collaboration, security discussions, or just a conversation about tech. Reach
-            out anytime.
+            Terbuka untuk kolaborasi, diskusi keamanan, atau sekadar obrolan seputar teknologi.
+            Jangan ragu untuk menghubungi.
           </p>
         </SectionReveal>
 

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { AboutSection } from "@/components/sections/about-section";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "Tentang",
   description:
-    "Riko Ardianto — cybersecurity enthusiast focused on security research, web security, and Linux.",
+    "Riko Ardianto — cybersecurity enthusiast yang fokus pada riset keamanan, web security, dan Linux.",
 };
 
 export default function AboutPage() {

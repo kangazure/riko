@@ -13,17 +13,17 @@ export default function NotFoundPage() {
         404
       </span>
       <h1 className="mb-3 text-xl font-semibold tracking-tight text-[var(--color-text-primary)]">
-        Page not found
+        Halaman tidak ditemukan
       </h1>
       <p className="mb-8 max-w-sm text-[14px] leading-relaxed text-[var(--color-text-secondary)]">
-        The page you&apos;re looking for doesn&apos;t exist or has been moved.
+        Halaman yang kamu cari tidak ada atau sudah dipindahkan.
       </p>
       <Link
         href="/"
         className="inline-flex items-center gap-2 rounded-lg border border-[var(--color-border)] px-4 py-2 text-[13px] font-medium text-[var(--color-text-primary)] transition-all hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface)]"
       >
         <ArrowLeft size={14} />
-        Back home
+        Kembali ke beranda
       </Link>
     </div>
   );

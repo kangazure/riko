@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { SkillsSection } from "@/components/sections/skills-section";
 
 export const metadata: Metadata = {
-  title: "Skills",
-  description: "Cybersecurity and technical skills — security tools, Linux, web security, and development.",
+  title: "Keahlian",
+  description: "Keahlian cybersecurity dan teknis — security tools, Linux, web security, dan development.",
 };
 
 export default function SkillsPage() {

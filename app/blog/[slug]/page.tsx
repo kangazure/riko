@@ -132,7 +132,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           className="mb-8 inline-flex items-center gap-2 text-[13px] text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text-secondary)]"
         >
           <ArrowLeft size={14} />
-          All articles
+          Semua artikel
         </Link>
 
         {/* Header */}
@@ -171,7 +171,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             className="inline-flex items-center gap-2 text-[13px] text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text-secondary)]"
           >
             <ArrowLeft size={14} />
-            Back to all articles
+            Kembali ke semua artikel
           </Link>
         </div>
       </article>

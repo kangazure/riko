@@ -11,25 +11,25 @@ export const projects: Project[] = [
   {
     title: "Cybersecurity Lab",
     description:
-      "A personal lab environment for learning security testing and vulnerability analysis in isolated, controlled settings.",
+      "Lab pribadi untuk mempelajari security testing dan vulnerability analysis di environment yang terisolasi dan terkontrol.",
     tags: ["Linux", "Docker", "Kali Linux", "Security Testing"],
   },
   {
     title: "Web Security Testing",
     description:
-      "Experiments with web application security on authorized test environments, covering OWASP vulnerabilities and remediation.",
+      "Eksperimen keamanan aplikasi web di lingkungan uji yang sah, mencakup kerentanan OWASP dan remediasinya.",
     tags: ["OWASP", "Burp Suite", "SQL Injection", "XSS"],
   },
   {
     title: "Security Automation",
     description:
-      "Scripts and lightweight automation tools for streamlining common security analysis workflows and repetitive reconnaissance tasks.",
+      "Skrip dan alat otomatisasi ringan untuk mempercepat workflow security analysis dan tugas reconnaissance yang repetitif.",
     tags: ["Python", "Bash", "Nmap", "Automation"],
   },
   {
     title: "Personal Security Tools",
     description:
-      "Collection of experimental tools and scripts built for learning purposes — network scanners, log analyzers, and basic IDS rules.",
+      "Kumpulan alat dan skrip eksperimental yang dibuat untuk pembelajaran — network scanner, log analyzer, dan aturan IDS dasar.",
     tags: ["Python", "Wireshark", "Snort", "Networking"],
   },
 ];

@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     template: "%s — Riko Ardianto",
   },
   description:
-    "Cybersecurity enthusiast focused on security research, web security, Linux, and building things that work.",
+    "Cybersecurity enthusiast yang fokus pada riset keamanan, web security, Linux, dan membangun hal-hal yang berfungsi.",
   keywords: ["cyber security", "web security", "security research", "linux", "Riko Ardianto"],
   authors: [{ name: "Riko Ardianto" }],
   creator: "Riko Ardianto",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     siteName: "Riko Ardianto",
     title: "Riko Ardianto — Cyber Security",
     description:
-      "Cybersecurity enthusiast focused on security research, web security, Linux, and building things that work.",
+      "Cybersecurity enthusiast yang fokus pada riset keamanan, web security, Linux, dan membangun hal-hal yang berfungsi.",
     locale: "id_ID",
     images: [{ url: `${siteUrl}/images/og.png`, width: 1200, height: 630 }],
   },

@@ -3,9 +3,9 @@ import { ProjectsSection } from "@/components/projects/projects-section";
 import { projects } from "@/data/projects";
 
 export const metadata: Metadata = {
-  title: "Projects",
+  title: "Proyek",
   description:
-    "Cybersecurity and development projects — lab environments, security testing, automation tools.",
+    "Proyek cybersecurity dan development — lab environment, security testing, automation tools.",
 };
 
 export default function ProjectsPage() {

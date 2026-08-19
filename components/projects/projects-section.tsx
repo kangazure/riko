@@ -19,10 +19,10 @@ export function ProjectsSection({ projects, showAll = false }: ProjectsSectionPr
         <SectionReveal>
           <div className="mb-14">
             <span className="text-[11px] font-medium uppercase tracking-[0.22em] text-[var(--color-accent)]">
-              Projects
+              Proyek
             </span>
             <h2 className="mt-4 text-[clamp(1.75rem,4vw,2.5rem)] font-semibold leading-[1.1] tracking-tight text-[var(--color-text-primary)]">
-              Things I&apos;ve worked on.
+              Hal-hal yang sudah dikerjakan.
             </h2>
           </div>
         </SectionReveal>
@@ -69,7 +69,7 @@ export function ProjectsSection({ projects, showAll = false }: ProjectsSectionPr
                 href="/projects"
                 className="inline-flex items-center gap-2 text-[13px] font-medium text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]"
               >
-                View all projects
+                Lihat semua proyek
                 <ArrowUpRight size={13} />
               </Link>
             </div>

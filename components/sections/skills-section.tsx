@@ -6,17 +6,17 @@ import { Shield, Monitor, Globe, Terminal } from "lucide-react";
 const skillGroups = [
   {
     icon: Shield,
-    title: "Security",
+    title: "Keamanan",
     skills: ["Nmap", "Burp Suite", "Metasploit", "SQLmap", "Gobuster", "Wireshark"],
   },
   {
     icon: Terminal,
-    title: "System",
+    title: "Sistem",
     skills: ["Linux", "Kali Linux", "Bash", "Git", "Docker"],
   },
   {
     icon: Globe,
-    title: "Web Security",
+    title: "Keamanan Web",
     skills: [
       "HTTP / HTTPS",
       "OWASP Top 10",
@@ -28,7 +28,7 @@ const skillGroups = [
   },
   {
     icon: Monitor,
-    title: "Development",
+    title: "Pengembangan",
     skills: ["Python", "JavaScript", "TypeScript", "Next.js", "Tailwind CSS"],
   },
 ];
@@ -40,10 +40,10 @@ export function SkillsSection() {
         <SectionReveal>
           <div className="mb-14">
             <span className="text-[11px] font-medium uppercase tracking-[0.22em] text-[var(--color-accent)]">
-              Skills
+              Keahlian
             </span>
             <h2 className="mt-4 text-[clamp(1.75rem,4vw,2.5rem)] font-semibold leading-[1.1] tracking-tight text-[var(--color-text-primary)]">
-              Tools of the trade.
+              Tools yang dipakai.
             </h2>
           </div>
         </SectionReveal>
