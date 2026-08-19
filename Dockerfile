@@ -1,14 +1,14 @@
 # Stage 1 — Dependencies
 FROM node:22-alpine AS deps
 WORKDIR /app
-COPY package.json package-lock.json* ./
-RUN npm ci --only=production --ignore-scripts
+COPY package.json ./
+RUN npm install --only=production --ignore-scripts
 
 # Stage 2 — Build
 FROM node:22-alpine AS builder
 WORKDIR /app
-COPY package.json package-lock.json* ./
-RUN npm ci --ignore-scripts
+COPY package.json ./
+RUN npm install --ignore-scripts
 COPY . .
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV NODE_ENV=production
