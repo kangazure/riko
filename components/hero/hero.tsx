@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { RotatingText } from "./rotating-text";
+import { TypingText } from "./rotating-text";
 import { motion } from "motion/react";
 
 export function Hero() {
@@ -45,9 +45,8 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
           className="mb-6"
         >
-          <RotatingText
-            texts={["Riko Ardianto", "Cyber Security"]}
-            interval={3200}
+          <TypingText
+            texts={["I'm Riko Ardianto", "Cyber Security"]}
             className="text-[clamp(2.5rem,8vw,5rem)] font-semibold tracking-tight text-[var(--color-text-primary)]"
           />
         </motion.div>

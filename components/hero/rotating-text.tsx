@@ -1,70 +1,76 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { AnimatePresence, motion } from "motion/react";
 
-interface RotatingTextProps {
+interface TypingTextProps {
   texts: string[];
-  interval?: number;
+  typeSpeed?: number;
+  deleteSpeed?: number;
+  pauseDuration?: number;
   className?: string;
 }
 
-export function RotatingText({ texts, interval = 3000, className = "" }: RotatingTextProps) {
-  const [index, setIndex] = useState(0);
+export function TypingText({
+  texts,
+  typeSpeed = 80,
+  deleteSpeed = 50,
+  pauseDuration = 2500,
+  className = "",
+}: TypingTextProps) {
+  const [textIndex, setTextIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  const advance = useCallback(() => {
-    setIndex((prev) => (prev + 1) % texts.length);
-  }, [texts.length]);
+  const currentText = texts[textIndex] || "";
+
+  const tick = useCallback(() => {
+    if (!isDeleting) {
+      // Typing
+      if (charIndex < currentText.length) {
+        setCharIndex((prev) => prev + 1);
+      } else {
+        // Finished typing, pause then delete
+        setTimeout(() => setIsDeleting(true), pauseDuration);
+      }
+    } else {
+      // Deleting
+      if (charIndex > 0) {
+        setCharIndex((prev) => prev - 1);
+      } else {
+        // Finished deleting, move to next text
+        setIsDeleting(false);
+        setTextIndex((prev) => (prev + 1) % texts.length);
+      }
+    }
+  }, [charIndex, currentText, isDeleting, pauseDuration, texts.length]);
 
   useEffect(() => {
     if (!mounted) return;
-    const timer = setInterval(advance, interval);
-    return () => clearInterval(timer);
-  }, [advance, interval, mounted]);
+    const speed = isDeleting ? deleteSpeed : typeSpeed;
+    const timer = setTimeout(tick, speed);
+    return () => clearTimeout(timer);
+  }, [tick, isDeleting, typeSpeed, deleteSpeed, mounted]);
 
-  const word = texts[index];
-
-  const chars = word.split("");
+  const displayed = currentText.slice(0, charIndex);
 
   return (
     <span className={`relative inline-flex items-center ${className}`}>
-      {/* Invisible spacer to prevent layout shift */}
+      {/* Invisible spacer */}
       <span className="invisible" aria-hidden="true">
         {texts.reduce((a, b) => (a.length > b.length ? a : b))}
       </span>
 
-      <span className="absolute inset-0 flex items-center justify-center">
-        <AnimatePresence mode="popLayout">
-          <motion.span
-            key={word}
-            initial={{ opacity: 0, filter: "blur(4px)" }}
-            animate={{ opacity: 1, filter: "blur(0px)" }}
-            exit={{ opacity: 0, filter: "blur(4px)" }}
-            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="flex"
-          >
-            {chars.map((char, i) => (
-              <motion.span
-                key={`${word}-${i}`}
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  delay: i * 0.03,
-                  duration: 0.3,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
-                className="inline-block"
-              >
-                {char === " " ? "\u00A0" : char}
-              </motion.span>
-            ))}
-          </motion.span>
-        </AnimatePresence>
+      <span className="absolute inset-0 flex items-center justify-center whitespace-nowrap">
+        <span>{displayed}</span>
+        <span
+          className="ml-0.5 inline-block w-[2px] animate-pulse rounded-full bg-[#3b82f6] align-middle"
+          style={{ height: "0.85em", marginTop: "0.05em" }}
+        />
       </span>
     </span>
   );
