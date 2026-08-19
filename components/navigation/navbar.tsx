@@ -12,9 +12,12 @@ const links = [
   { href: "/about", label: "Tentang" },
   { href: "/projects", label: "Proyek" },
   { href: "/skills", label: "Keahlian" },
-  { href: "/tools", label: "Tools" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Kontak" },
+];
+
+const externalLinks = [
+  { href: "https://collshp.com/warung_sosmed", label: "Shop" },
 ];
 
 export function Navbar() {
@@ -73,6 +76,17 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
+            {externalLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-md px-3 py-1.5 text-[13px] text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]"
+              >
+                {link.label}
+              </a>
+            ))}
           </div>
 
           <div className="flex items-center gap-2">
@@ -126,6 +140,28 @@ export function Navbar() {
                   >
                     {link.label}
                   </Link>
+                </motion.div>
+              ))}
+              {externalLinks.map((link, i) => (
+                <motion.div
+                  key={link.href}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 8 }}
+                  transition={{
+                    delay: (links.length + i) * 0.04,
+                    duration: 0.3,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
+                >
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-2xl font-medium tracking-tight text-[var(--color-text-secondary)]"
+                  >
+                    {link.label}
+                  </a>
                 </motion.div>
               ))}
             </nav>
