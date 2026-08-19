@@ -50,10 +50,10 @@ export function SkillsSection() {
 
         <div className="grid gap-4 sm:grid-cols-2">
           {skillGroups.map((group, i) => (
-            <SectionReveal key={group.title} delay={i * 0.08}>
-              <div className="group rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 transition-colors hover:border-[var(--color-border-strong)]">
+            <SectionReveal key={group.title} delay={i * 0.08} className="h-full">
+              <div className="group flex h-full flex-col rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 transition-colors hover:border-[var(--color-border-strong)]">
                 <div className="mb-4 flex items-center gap-3">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[var(--color-accent-soft)]">
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[var(--color-accent-soft)]">
                     <group.icon size={16} className="text-[var(--color-accent)]" />
                   </div>
                   <h3 className="text-[14px] font-semibold text-[var(--color-text-primary)]">
