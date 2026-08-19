@@ -4,7 +4,7 @@ import { blogPosts } from "@/data/blog";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://rikoardianto.web.id";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticPages = ["", "/about", "/projects", "/skills", "/blog", "/contact"].map((path) => ({
+  const staticPages = ["", "/about", "/projects", "/skills", "/tools", "/blog", "/contact"].map((path) => ({
     url: `${siteUrl}${path}`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,

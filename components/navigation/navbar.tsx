@@ -12,6 +12,7 @@ const links = [
   { href: "/about", label: "Tentang" },
   { href: "/projects", label: "Proyek" },
   { href: "/skills", label: "Keahlian" },
+  { href: "/tools", label: "Tools" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Kontak" },
 ];
