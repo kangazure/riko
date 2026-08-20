@@ -1,14 +1,29 @@
 "use client";
 
+import { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { TypingText } from "./rotating-text";
-import { motion } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
 
 export function Hero() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+
+  // Blur increases + fade out as user scrolls past the hero
+  const filterBlur = useTransform(scrollYProgress, [0, 0.5], ["blur(0px)", "blur(10px)"]);
+  const photoOpacity = useTransform(scrollYProgress, [0.2, 0.6], [1, 0.25]);
+  const photoScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.9]);
+
   return (
-    <section className="relative flex min-h-[100dvh] flex-col items-center justify-center px-6 pt-16 lg:flex-row lg:items-center lg:justify-between lg:gap-16 lg:px-16 xl:px-24">
+    <section
+      ref={sectionRef}
+      className="relative flex min-h-[100dvh] flex-col items-center justify-center px-6 pt-16 lg:flex-row lg:items-center lg:justify-between lg:gap-16 lg:px-16 xl:px-24"
+    >
       {/* Background grid lines — subtle */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div
@@ -92,34 +107,41 @@ export function Hero() {
         initial={{ opacity: 0, scale: 0.92 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+        style={{
+          filter: filterBlur,
+          opacity: photoOpacity,
+          scale: photoScale,
+        }}
         className="relative z-10 mt-16 flex items-center justify-center lg:mt-10 lg:flex-1"
       >
         {/* Glow aura behind photo */}
-        <div className="absolute h-[320px] w-[320px] rounded-full bg-[var(--color-accent)] opacity-[0.06] blur-[80px]" />
+        <div className="absolute h-[320px] w-[320px] rounded-full bg-[var(--color-accent)] opacity-[0.05] blur-[80px]" />
 
-        {/* Outer ring glow */}
-        <div className="absolute h-[340px] w-[340px] rounded-full border border-[rgba(59,130,246,0.1)]" />
-
-        {/* Profile image frame */}
-        <div className="group relative h-[280px] w-[280px] overflow-hidden rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] shadow-2xl shadow-black/30 transition-all duration-500 hover:border-[rgba(59,130,246,0.3)] sm:h-[320px] sm:w-[320px]">
-          {/* Subtle border glow on hover */}
-          <div className="pointer-events-none absolute inset-0 rounded-full ring-1 ring-inset ring-white/[0.04] transition-all duration-500 group-hover:ring-[rgba(59,130,246,0.12)]" />
-
-          {/* Replace this Image src with your actual photo when ready */}
+        {/* Profile image — no hard border, uses mask for blend */}
+        <div className="group relative h-[280px] w-[280px] overflow-hidden rounded-full sm:h-[320px] sm:w-[320px]">
+          {/* DON'T CHANGE THE PHOTO — user's actual image */}
           <Image
             src="/images/profile-placeholder.svg"
             alt="Riko Ardianto — Cyber Security"
             fill
-            className="object-cover transition-all duration-700 group-hover:scale-105"
+            className="object-cover"
             priority
             sizes="(max-width: 640px) 280px, 320px"
             unoptimized
           />
-        </div>
 
-        {/* Decorative accent dot */}
-        <div className="absolute -right-2 top-8 h-3 w-3 rounded-full bg-[var(--color-accent)] opacity-60 shadow-[0_0_12px_rgba(59,130,246,0.4)]" />
-        <div className="absolute -bottom-2 left-10 h-2 w-2 rounded-full bg-purple-500 opacity-50 shadow-[0_0_8px_rgba(139,92,246,0.3)]" />
+          {/* Blend mask — fades edges into background */}
+          <div
+            className="pointer-events-none absolute inset-0 rounded-full"
+            style={{
+              background:
+                "radial-gradient(circle at center, transparent 60%, var(--color-background) 100%)",
+            }}
+          />
+
+          {/* Subtle inner highlight ring */}
+          <div className="pointer-events-none absolute inset-0 rounded-full ring-1 ring-inset ring-white/[0.04]" />
+        </div>
       </motion.div>
 
       {/* Bottom fade gradient */}
