@@ -154,23 +154,26 @@ export function Hero() {
       {/* === RIGHT SIDE — PROFILE PHOTO === */}
       <motion.div
         initial={{ opacity: 0, scale: 0.92 }}
-        animate={{
-          opacity: 1,
-          scale: 1,
-          y: [0, -10, 0],
-        }}
-        transition={{
-          opacity: { duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] },
-          scale: { duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] },
-          y: { repeat: Infinity, duration: 4, ease: "easeInOut" },
-        }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
         className="relative z-10 mt-16 flex items-center justify-center lg:mt-10 lg:flex-1"
       >
-        {/* Large soft blur aura behind photo */}
-        <div className="absolute h-[380px] w-[380px] bg-[var(--color-accent)] opacity-[0.04] blur-[120px]" />
+        {/* Soft glow aura behind photo */}
+        <div className="absolute h-[340px] w-[340px] bg-[var(--color-accent)] opacity-[0.05] blur-[100px]" />
+
+        {/* Shadow layer — deep drop shadow */}
+        <div
+          className="absolute h-[300px] w-[280px] translate-x-3 translate-y-4 bg-black opacity-40 blur-[40px] sm:h-[380px] sm:w-[340px]"
+          aria-hidden="true"
+        />
 
         {/* Photo — no circle, free form, blended */}
-        <div className="relative h-[300px] w-[280px] overflow-hidden sm:h-[380px] sm:w-[340px]">
+        <div
+          className="relative h-[300px] w-[280px] overflow-hidden sm:h-[380px] sm:w-[340px]"
+          style={{
+            filter: "drop-shadow(0 20px 40px rgba(0,0,0,0.5)) drop-shadow(0 0 60px rgba(59,130,246,0.15))",
+          }}
+        >
           {/* DON'T CHANGE THE PHOTO */}
           <Image
             src="/images/profile-placeholder.svg"
