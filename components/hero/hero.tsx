@@ -154,23 +154,33 @@ export function Hero() {
       {/* === RIGHT SIDE — PROFILE PHOTO === */}
       <motion.div
         initial={{ opacity: 0, scale: 0.92 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+        animate={{
+          opacity: 1,
+          scale: 1,
+          y: [0, -10, 0],
+        }}
+        transition={{
+          opacity: { duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] },
+          scale: { duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] },
+          y: { repeat: Infinity, duration: 4, ease: "easeInOut" },
+        }}
         className="relative z-10 mt-16 flex items-center justify-center lg:mt-10 lg:flex-1"
       >
         {/* Soft glow aura behind photo */}
         <div className="absolute h-[340px] w-[340px] bg-[var(--color-accent)] opacity-[0.05] blur-[100px]" />
 
-        {/* Shadow layer — deep drop shadow */}
+        {/* Shadow layer — matches blob shape */}
         <div
           className="absolute h-[300px] w-[280px] translate-x-3 translate-y-4 bg-black opacity-40 blur-[40px] sm:h-[380px] sm:w-[340px]"
+          style={{ borderRadius: "40% 60% 55% 45% / 45% 40% 60% 55%" }}
           aria-hidden="true"
         />
 
-        {/* Photo — no circle, free form, blended */}
+        {/* Photo — organic blob shape, blended */}
         <div
           className="relative h-[300px] w-[280px] overflow-hidden sm:h-[380px] sm:w-[340px]"
           style={{
+            borderRadius: "40% 60% 55% 45% / 45% 40% 60% 55%",
             filter: "drop-shadow(0 20px 40px rgba(0,0,0,0.5)) drop-shadow(0 0 60px rgba(59,130,246,0.15))",
           }}
         >
@@ -189,6 +199,7 @@ export function Hero() {
           <div
             className="pointer-events-none absolute inset-0"
             style={{
+              borderRadius: "40% 60% 55% 45% / 45% 40% 60% 55%",
               background:
                 "linear-gradient(to bottom, transparent 60%, var(--color-background) 95%)",
             }}
@@ -197,6 +208,7 @@ export function Hero() {
           <div
             className="pointer-events-none absolute inset-0"
             style={{
+              borderRadius: "40% 60% 55% 45% / 45% 40% 60% 55%",
               background:
                 "radial-gradient(ellipse 80% 60% at 50% 30%, transparent 50%, var(--color-background) 100%)",
             }}
