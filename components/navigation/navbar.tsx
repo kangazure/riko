@@ -62,8 +62,8 @@ export function Navbar() {
             <Image
               src="/images/logo.svg"
               alt="Riko Ardianto"
-              width={160}
-              height={32}
+              width={230}
+              height={48}
               className="h-8 w-auto"
               priority
               unoptimized
