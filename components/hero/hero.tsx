@@ -2,14 +2,56 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Github, Instagram } from "lucide-react";
 import { TypingText } from "./rotating-text";
 import { motion } from "motion/react";
+
+/* Inline SVG icons for platforms not in lucide */
+function WhatsAppIcon({ size = 18 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
+      <path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1Zm0 0a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1" />
+      <path d="M9.5 13.5c.8.8 1.9 1.2 3 1.2" />
+    </svg>
+  );
+}
+
+function TikTokIcon({ size = 18 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+    </svg>
+  );
+}
+
+const socialLinks = [
+  {
+    label: "Instagram",
+    href: "https://instagram.com/rikoardianto",
+    icon: Instagram,
+  },
+  {
+    label: "WhatsApp",
+    href: "https://wa.me/6281234567890",
+    icon: WhatsAppIcon,
+  },
+  {
+    label: "GitHub",
+    href: "https://github.com/kangazure",
+    icon: Github,
+  },
+  {
+    label: "TikTok",
+    href: "https://tiktok.com/@rikoardianto",
+    icon: TikTokIcon,
+  },
+];
 
 export function Hero() {
   return (
     <section className="relative flex min-h-[100dvh] flex-col items-center justify-center px-6 pt-16 lg:flex-row lg:items-center lg:justify-between lg:gap-16 lg:px-16 xl:px-24">
-      {/* Background grid lines — subtle */}
+      {/* Background grid lines */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div
           className="absolute inset-0 opacity-[0.03]"
@@ -59,17 +101,38 @@ export function Hero() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-10 max-w-lg text-[15px] leading-relaxed text-[var(--color-text-secondary)]"
+          className="mb-6 max-w-lg text-[15px] leading-relaxed text-[var(--color-text-secondary)]"
         >
           Cybersecurity enthusiast yang fokus pada riset keamanan, web security,
           dan membangun hal-hal yang benar-benar berfungsi.
         </motion.p>
 
+        {/* Social icons */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-8 flex items-center gap-4"
+        >
+          {socialLinks.map((social) => (
+            <a
+              key={social.label}
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={social.label}
+              className="text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text-primary)]"
+            >
+              <social.icon size={20} />
+            </a>
+          ))}
+        </motion.div>
+
         {/* CTAs */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.5, delay: 0.65, ease: [0.16, 1, 0.3, 1] }}
           className="flex items-center gap-3"
         >
           <Link
@@ -95,12 +158,15 @@ export function Hero() {
         transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
         className="relative z-10 mt-16 flex items-center justify-center lg:mt-10 lg:flex-1"
       >
-        {/* Glow aura behind photo */}
-        <div className="absolute h-[320px] w-[320px] rounded-full bg-[var(--color-accent)] opacity-[0.05] blur-[80px]" />
+        {/* Outer blur aura — besar & soft */}
+        <div className="absolute h-[360px] w-[360px] rounded-full bg-[var(--color-accent)] opacity-[0.06] blur-[100px]" />
 
-        {/* Profile image — blended with background */}
+        {/* Medium glow ring */}
+        <div className="absolute h-[340px] w-[340px] rounded-full bg-gradient-to-br from-[rgba(59,130,246,0.08)] to-transparent blur-[60px]" />
+
+        {/* Profile image container */}
         <div className="group relative h-[280px] w-[280px] overflow-hidden rounded-full sm:h-[320px] sm:w-[320px]">
-          {/* DON'T CHANGE THE PHOTO — user's actual image */}
+          {/* Photo with subtle blur at edges via overlay */}
           <Image
             src="/images/profile-placeholder.svg"
             alt="Riko Ardianto — Cyber Security"
@@ -111,17 +177,27 @@ export function Hero() {
             unoptimized
           />
 
-          {/* Blend mask — fades edges into background */}
+          {/* Blend layers — nyatuin foto ke background */}
+          {/* Layer 1: radial fade dari transparan ke background */}
           <div
             className="pointer-events-none absolute inset-0 rounded-full"
             style={{
               background:
-                "radial-gradient(circle at center, transparent 60%, var(--color-background) 100%)",
+                "radial-gradient(circle at center, transparent 55%, var(--color-background) 100%)",
             }}
           />
-
-          {/* Subtle inner highlight ring */}
-          <div className="pointer-events-none absolute inset-0 rounded-full ring-1 ring-inset ring-white/[0.04]" />
+          {/* Layer 2: subtle blur overlay di pinggir */}
+          <div
+            className="pointer-events-none absolute inset-0 rounded-full backdrop-blur-[2px]"
+            style={{
+              WebkitMaskImage:
+                "radial-gradient(circle at center, transparent 65%, black 100%)",
+              maskImage:
+                "radial-gradient(circle at center, transparent 65%, black 100%)",
+            }}
+          />
+          {/* Layer 3: soft inner shadow */}
+          <div className="pointer-events-none absolute inset-0 rounded-full ring-1 ring-inset ring-white/[0.03]" />
         </div>
       </motion.div>
 
