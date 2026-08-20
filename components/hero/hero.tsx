@@ -154,50 +154,50 @@ export function Hero() {
       {/* === RIGHT SIDE — PROFILE PHOTO === */}
       <motion.div
         initial={{ opacity: 0, scale: 0.92 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+        animate={{
+          opacity: 1,
+          scale: 1,
+          y: [0, -10, 0],
+        }}
+        transition={{
+          opacity: { duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] },
+          scale: { duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] },
+          y: { repeat: Infinity, duration: 4, ease: "easeInOut" },
+        }}
         className="relative z-10 mt-16 flex items-center justify-center lg:mt-10 lg:flex-1"
       >
-        {/* Outer blur aura — besar & soft */}
-        <div className="absolute h-[360px] w-[360px] rounded-full bg-[var(--color-accent)] opacity-[0.06] blur-[100px]" />
+        {/* Large soft blur aura behind photo */}
+        <div className="absolute h-[380px] w-[380px] bg-[var(--color-accent)] opacity-[0.04] blur-[120px]" />
 
-        {/* Medium glow ring */}
-        <div className="absolute h-[340px] w-[340px] rounded-full bg-gradient-to-br from-[rgba(59,130,246,0.08)] to-transparent blur-[60px]" />
-
-        {/* Profile image container */}
-        <div className="group relative h-[280px] w-[280px] overflow-hidden rounded-full sm:h-[320px] sm:w-[320px]">
-          {/* Photo with subtle blur at edges via overlay */}
+        {/* Photo — no circle, free form, blended */}
+        <div className="relative h-[300px] w-[280px] overflow-hidden sm:h-[380px] sm:w-[340px]">
+          {/* DON'T CHANGE THE PHOTO */}
           <Image
             src="/images/profile-placeholder.svg"
             alt="Riko Ardianto — Cyber Security"
             fill
             className="object-cover"
             priority
-            sizes="(max-width: 640px) 280px, 320px"
+            sizes="(max-width: 640px) 280px, (max-width: 1024px) 340px, 340px"
             unoptimized
           />
 
-          {/* Blend layers — nyatuin foto ke background */}
-          {/* Layer 1: radial fade dari transparan ke background */}
+          {/* Blend: fade bottom edge into background */}
           <div
-            className="pointer-events-none absolute inset-0 rounded-full"
+            className="pointer-events-none absolute inset-0"
             style={{
               background:
-                "radial-gradient(circle at center, transparent 55%, var(--color-background) 100%)",
+                "linear-gradient(to bottom, transparent 60%, var(--color-background) 95%)",
             }}
           />
-          {/* Layer 2: subtle blur overlay di pinggir */}
+          {/* Blend: fade top-left and top-right into background */}
           <div
-            className="pointer-events-none absolute inset-0 rounded-full backdrop-blur-[2px]"
+            className="pointer-events-none absolute inset-0"
             style={{
-              WebkitMaskImage:
-                "radial-gradient(circle at center, transparent 65%, black 100%)",
-              maskImage:
-                "radial-gradient(circle at center, transparent 65%, black 100%)",
+              background:
+                "radial-gradient(ellipse 80% 60% at 50% 30%, transparent 50%, var(--color-background) 100%)",
             }}
           />
-          {/* Layer 3: soft inner shadow */}
-          <div className="pointer-events-none absolute inset-0 rounded-full ring-1 ring-inset ring-white/[0.03]" />
         </div>
       </motion.div>
 
