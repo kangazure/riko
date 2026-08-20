@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 
 interface TypingTextProps {
   texts: string[];
+  textColors?: string[];
   typeSpeed?: number;
   deleteSpeed?: number;
   pauseDuration?: number;
@@ -12,6 +13,7 @@ interface TypingTextProps {
 
 export function TypingText({
   texts,
+  textColors,
   typeSpeed = 80,
   deleteSpeed = 50,
   pauseDuration = 2500,
@@ -27,6 +29,7 @@ export function TypingText({
   }, []);
 
   const currentText = texts[textIndex] || "";
+  const currentColor = textColors?.[textIndex] || undefined;
 
   const tick = useCallback(() => {
     if (!isDeleting) {
@@ -66,7 +69,7 @@ export function TypingText({
       </span>
 
       <span className="absolute inset-0 flex items-center justify-center whitespace-nowrap">
-        <span>{displayed}</span>
+        <span style={{ color: currentColor }}>{displayed}</span>
         <span
           className="ml-0.5 inline-block w-[2px] animate-pulse rounded-full bg-[#3b82f6] align-middle"
           style={{ height: "0.85em", marginTop: "0.05em" }}

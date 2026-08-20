@@ -1,29 +1,14 @@
 "use client";
 
-import { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { TypingText } from "./rotating-text";
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion } from "motion/react";
 
 export function Hero() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end start"],
-  });
-
-  // Blur increases + fade out as user scrolls past the hero
-  const filterBlur = useTransform(scrollYProgress, [0, 0.5], ["blur(0px)", "blur(10px)"]);
-  const photoOpacity = useTransform(scrollYProgress, [0.2, 0.6], [1, 0.25]);
-  const photoScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.9]);
-
   return (
-    <section
-      ref={sectionRef}
-      className="relative flex min-h-[100dvh] flex-col items-center justify-center px-6 pt-16 lg:flex-row lg:items-center lg:justify-between lg:gap-16 lg:px-16 xl:px-24"
-    >
+    <section className="relative flex min-h-[100dvh] flex-col items-center justify-center px-6 pt-16 lg:flex-row lg:items-center lg:justify-between lg:gap-16 lg:px-16 xl:px-24">
       {/* Background grid lines — subtle */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div
@@ -64,6 +49,7 @@ export function Hero() {
         >
           <TypingText
             texts={["I'm Riko Ardianto", "Cyber Security"]}
+            textColors={["", "#ef4444"]}
             className="text-[clamp(2.5rem,8vw,5rem)] font-semibold tracking-tight text-[var(--color-text-primary)]"
           />
         </motion.div>
@@ -107,17 +93,12 @@ export function Hero() {
         initial={{ opacity: 0, scale: 0.92 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-        style={{
-          filter: filterBlur,
-          opacity: photoOpacity,
-          scale: photoScale,
-        }}
         className="relative z-10 mt-16 flex items-center justify-center lg:mt-10 lg:flex-1"
       >
         {/* Glow aura behind photo */}
         <div className="absolute h-[320px] w-[320px] rounded-full bg-[var(--color-accent)] opacity-[0.05] blur-[80px]" />
 
-        {/* Profile image — no hard border, uses mask for blend */}
+        {/* Profile image — blended with background */}
         <div className="group relative h-[280px] w-[280px] overflow-hidden rounded-full sm:h-[320px] sm:w-[320px]">
           {/* DON'T CHANGE THE PHOTO — user's actual image */}
           <Image
