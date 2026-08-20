@@ -92,7 +92,7 @@ export function Hero() {
         initial={{ opacity: 0, scale: 0.92 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-        className="relative z-10 mt-16 flex items-center justify-center lg:mt-0 lg:flex-1"
+        className="relative z-10 mt-16 flex items-center justify-center lg:mt-10 lg:flex-1"
       >
         {/* Glow aura behind photo */}
         <div className="absolute h-[320px] w-[320px] rounded-full bg-[var(--color-accent)] opacity-[0.06] blur-[80px]" />
