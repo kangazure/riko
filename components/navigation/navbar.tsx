@@ -2,6 +2,7 @@
 
 import { useRef, useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Moon, Sun, Menu, X } from "lucide-react";
 import { useTheme } from "next-themes";
@@ -56,9 +57,17 @@ export function Navbar() {
         <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
           <Link
             href="/"
-            className="text-[15px] font-medium tracking-tight text-[var(--color-text-primary)] no-underline"
+            className="flex items-center no-underline"
           >
-            Riko Ardianto
+            <Image
+              src="/images/logo.svg"
+              alt="Riko Ardianto"
+              width={160}
+              height={32}
+              className="h-8 w-auto"
+              priority
+              unoptimized
+            />
           </Link>
 
           {/* Desktop links */}
