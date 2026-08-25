@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { SectionReveal } from "@/components/motion/section-reveal";
 import type { BlogPost } from "@/data/blog";
+import { categoryMeta, formatDate } from "@/data/blog";
 
 interface BlogSectionProps {
   posts: BlogPost[];
@@ -39,7 +40,7 @@ export function BlogSection({ posts }: BlogSectionProps) {
               >
                 <div className="mb-3 flex items-center gap-3">
                   <span className="text-[11px] uppercase tracking-[0.15em] text-[var(--color-accent)]">
-                    {featured[0]?.category}
+                    {featured[0] ? categoryMeta[featured[0].category].label : ""}
                   </span>
                   <span className="text-[11px] text-[var(--color-text-muted)]">
                     {featured[0]?.readingTime}
@@ -51,8 +52,8 @@ export function BlogSection({ posts }: BlogSectionProps) {
                 <p className="text-[13px] leading-relaxed text-[var(--color-text-secondary)]">
                   {featured[0]?.description}
                 </p>
-                <div className="mt-4 flex items-center gap-2 text-[12px] text-[var(--color-text-muted)]">
-                  <span>{featured[0]?.date}</span>
+                <div className="mt-4 flex items-center gap-3 text-[12px] text-[var(--color-text-muted)]">
+                  <span>{featured[0] ? formatDate(featured[0].date) : ""}</span>
                   <span className="inline-flex items-center text-[var(--color-accent)] opacity-0 transition-opacity group-hover:opacity-100">
                     Baca <ArrowRight size={12} className="ml-1" />
                   </span>
@@ -71,7 +72,7 @@ export function BlogSection({ posts }: BlogSectionProps) {
                 >
                   <div className="mb-1.5 flex items-center gap-2">
                     <span className="text-[10px] uppercase tracking-[0.15em] text-[var(--color-text-muted)]">
-                      {post.category}
+                      {categoryMeta[post.category].label}
                     </span>
                     <span className="text-[10px] text-[var(--color-text-muted)]">
                       {post.readingTime}
@@ -80,7 +81,7 @@ export function BlogSection({ posts }: BlogSectionProps) {
                   <h4 className="mb-1 text-[14px] font-medium text-[var(--color-text-primary)] group-hover:text-[var(--color-accent)] transition-colors">
                     {post.title}
                   </h4>
-                  <span className="text-[11px] text-[var(--color-text-muted)]">{post.date}</span>
+                  <span className="text-[11px] text-[var(--color-text-muted)]">{formatDate(post.date)}</span>
                 </Link>
               </SectionReveal>
             ))}
