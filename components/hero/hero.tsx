@@ -28,12 +28,12 @@ function TikTokIcon({ size = 18 }: { size?: number }) {
 const socialLinks = [
   {
     label: "Instagram",
-    href: "https://instagram.com/rikoardianto",
+    href: "https://instagram.com/skuyyy_y7",
     icon: Instagram,
   },
   {
     label: "WhatsApp",
-    href: "https://wa.me/6281234567890",
+    href: "https://wa.me/6287781974170",
     icon: WhatsAppIcon,
   },
   {
@@ -43,7 +43,7 @@ const socialLinks = [
   },
   {
     label: "TikTok",
-    href: "https://tiktok.com/@rikoardianto",
+    href: "https://tiktok.com/@warung_sosmed",
     icon: TikTokIcon,
   },
 ];
