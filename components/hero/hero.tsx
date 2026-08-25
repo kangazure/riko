@@ -103,8 +103,8 @@ export function Hero() {
           transition={{ duration: 0.5, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
           className="mb-6 max-w-lg text-[15px] leading-relaxed text-[var(--color-text-secondary)]"
         >
-          Cybersecurity enthusiast yang fokus pada riset keamanan, web security,
-          dan membangun hal-hal yang benar-benar berfungsi.
+          I am Riko Ardianto, a cybersecurity enthusiast and network engineer with a strong interest in technology,
+          computer networking, system security and the development of digital solutions.
         </motion.p>
 
         {/* Social icons */}
