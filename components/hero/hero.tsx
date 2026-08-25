@@ -78,7 +78,7 @@ export function Hero() {
             <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--color-accent)]" />
           </span>
           <span className="text-[12px] tracking-wide text-[var(--color-text-secondary)]">
-            Tersedia untuk proyek
+            #wongmumet
           </span>
         </motion.div>
 
