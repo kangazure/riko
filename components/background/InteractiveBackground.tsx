@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 const logos = [
   { src: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/html5.svg", size: 48 },

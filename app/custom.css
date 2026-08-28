@@ -1,11 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@reference;
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center bg-gradient-to-r from-indigo-600 to-purple-600 px-4 py-2 text-sm font-medium text-white transition-all duration-300 ease-out;
-border-radius: 0.375rem;
+    @apply inline-flex items-center rounded-md bg-gradient-to-r from-indigo-600 to-purple-600 px-4 py-2 text-sm font-medium text-white transition-all duration-300 ease-out;
   }
   .btn-primary:hover {
     @apply shadow-lg shadow-indigo-500/50;
