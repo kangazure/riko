@@ -4,6 +4,8 @@ import { ThemeProvider } from "@/components/theme/theme-provider";
 import { Navbar } from "@/components/navigation/navbar";
 import { Footer } from "@/components/sections/footer";
 import "./globals.css";
+import "./custom.css";
+import InteractiveBackground from "@/components/background/InteractiveBackground";
 
 const geist = Geist({
   variable: "--font-geist",
@@ -83,6 +85,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="min-h-[100dvh] font-sans antialiased">
         <ThemeProvider>
           <div className="relative flex min-h-[100dvh] flex-col">
+            <InteractiveBackground />
             <Navbar />
             <main className="flex-1">{children}</main>
             <Footer />

@@ -1,0 +1,22 @@
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center rounded-md bg-gradient-to-r from-indigo-600 to-purple-600 px-4 py-2 text-sm font-medium text-white transition-all duration-300 ease-out;
+  }
+  .btn-primary:hover {
+    @apply shadow-lg shadow-indigo-500/50;
+  }
+
+  .card {
+    @apply rounded-xl bg-neutral-800 bg-opacity-70 backdrop-blur-sm border border-neutral-700 transition-transform duration-300 ease-out;
+  }
+  .card:hover {
+    @apply scale-[1.02] shadow-xl;
+  }
+
+  .social-link {
+    @apply inline-flex items-center p-2 rounded-full transition-colors duration-300;
+  }
+  .social-link:hover {
+    @apply bg-neutral-700 bg-opacity-80;
+  }
+}
