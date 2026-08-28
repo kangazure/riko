@@ -22,7 +22,7 @@ ENV NEXT_TELEMETRY_DISABLED=1
 ENV PORT=3000
 ENV HOSTNAME=0.0.0.0
 
-# ← *Perbaikan di sini*
+>>>>>>> 9800a17 (Fix motion import to framer-motion and add Tailwind directives to custom.css)
 RUN groupadd -g 1001 nodejs && \
     useradd -u 1001 -g nodejs -m nextjs
 
