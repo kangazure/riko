@@ -1,11 +1,11 @@
 # Stage 1 — Dependencies
-FROM node:22-alpine AS deps
+FROM node:22-bullseye AS deps
 WORKDIR /app
 COPY package.json ./
 RUN npm install --only=production --ignore-scripts
 
 # Stage 2 — Build
-FROM node:22-alpine AS builder
+FROM node:22-bullseye AS builder
 WORKDIR /app
 COPY package.json ./
 RUN npm install --ignore-scripts
@@ -15,7 +15,7 @@ ENV NODE_ENV=production
 RUN npm run build
 
 # Stage 3 — Production
-FROM node:22-alpine AS runner
+FROM node:22-bullseye AS runner
 WORKDIR /app
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
